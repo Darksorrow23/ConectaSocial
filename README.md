@@ -36,3 +36,4 @@ assets/hero.jpg   Foto del hero (opcional, exportarla desde Figma)
 
 Nota: la autenticación usa `localStorage` mientras no exista backend. Está aislada en `js/auth.js`
 para reemplazarla por la API sin tocar el resto del código.
+# ConectaSocial
