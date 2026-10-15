@@ -1,0 +1,300 @@
+/* ConectaSocial - estilos globales (Sprint 1) */
+
+:root {
+  --bg: #faf7f2;
+  --ink: #2b2420;
+  --muted: #7d7266;
+  --line: #e8e0d2;
+  --card: #ffffff;
+  --terracotta: #c0572f;
+  --terracotta-dark: #a24624;
+  --amber: #e09b3d;
+
+  --feminismo-bg: #fde6ee;
+  --feminismo-fg: #c2417a;
+  --lgbtq-bg: #efe8fb;
+  --lgbtq-fg: #7a50c8;
+  --antirracismo-bg: #fdecd8;
+  --antirracismo-fg: #c47a2c;
+  --medio-ambiente-bg: #e5f2df;
+  --medio-ambiente-fg: #4a8848;
+  --veganismo-bg: #def3e9;
+  --veganismo-fg: #2e9c7a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Outfit", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: "Newsreader", Georgia, serif; }
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+/* ---------- Botones ---------- */
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 22px;
+  background: var(--terracotta);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--terracotta-dark); }
+.btn-block { width: 100%; }
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Chips de categoría ---------- */
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.chip-feminismo { background: var(--feminismo-bg); color: var(--feminismo-fg); }
+.chip-lgbtq { background: var(--lgbtq-bg); color: var(--lgbtq-fg); }
+.chip-antirracismo { background: var(--antirracismo-bg); color: var(--antirracismo-fg); }
+.chip-medio-ambiente { background: var(--medio-ambiente-bg); color: var(--medio-ambiente-fg); }
+.chip-veganismo { background: var(--veganismo-bg); color: var(--veganismo-fg); }
+
+.chip-sm { padding: 4px 12px; font-size: 12px; }
+.chip-on-dark { background: rgba(255, 255, 255, 0.92); }
+
+/* ---------- Header / navegación ---------- */
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 62px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.brand-name { font-family: "Newsreader", Georgia, serif; font-size: 20px; font-weight: 600; }
+.brand-name span { color: var(--terracotta); }
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > li > a,
+.nav-menu > li > button {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-item { position: relative; }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  min-width: 210px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(43, 36, 32, 0.12);
+}
+
+/* Se abre con el mouse, con el teclado y con toque (clase .open) */
+.nav-item:hover > .dropdown,
+.nav-item:focus-within > .dropdown,
+.nav-item.open > .dropdown { display: block; }
+
+.dropdown a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.dropdown a:hover { background: var(--bg); }
+
+.nav-actions { display: flex; align-items: center; gap: 20px; font-size: 15px; font-weight: 500; }
+.nav-user { color: var(--muted); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 96px 0 84px;
+  color: #fff;
+  background-color: #3a2a1d;
+  background-image:
+    linear-gradient(100deg, rgba(34, 22, 14, 0.92) 20%, rgba(34, 22, 14, 0.6) 100%),
+    url("../assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero .chip-row { margin-bottom: 32px; }
+
+.hero h1 {
+  max-width: 14ch;
+  margin: 0 0 24px;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.12;
+}
+.hero h1 .accent { display: block; color: var(--amber); }
+
+.hero-lead { max-width: 52ch; margin: 0 0 32px; font-size: 18px; color: #efe7dc; }
+
+.search-form { display: flex; gap: 10px; max-width: 640px; }
+
+.search-form input {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 22px;
+  font: inherit;
+  font-size: 15px;
+}
+
+.strip { padding: 24px 0; background: #fff; border-bottom: 1px solid var(--line); }
+
+/* ---------- Páginas internas ---------- */
+
+.page-section { padding: 56px 0 80px; }
+.page-section h1 { margin: 0 0 8px; font-size: 40px; }
+.page-lead { margin: 0 0 32px; color: var(--muted); }
+
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+}
+
+/* ---------- Formularios (login / registro) ---------- */
+
+.auth-wrap { display: flex; justify-content: center; padding: 64px 0 96px; }
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.auth-card h1 { margin: 0 0 6px; font-size: 28px; }
+.auth-card .sub { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--muted); }
+.field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 14px;
+  background: var(--bg);
+  font: inherit;
+  color: var(--ink);
+}
+.field input:focus { outline: 2px solid var(--terracotta); outline-offset: 1px; }
+
+.form-message { min-height: 20px; margin: 0 0 12px; font-size: 14px; }
+.form-message.error { color: #b3261e; }
+.form-message.ok { color: #2e7d32; }
+
+.toggle-row { margin-top: 18px; text-align: center; font-size: 14px; color: var(--muted); }
+.toggle-row .btn-link { color: var(--terracotta); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+
+.site-footer { padding: 32px 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* ---------- Responsive (HU 0006) ---------- */
+
+@media (max-width: 860px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 64px 0 56px; }
+  .hero h1 { font-size: 38px; }
+  .search-form { flex-direction: column; }
+
+  .nav { flex-wrap: wrap; padding: 12px 0; }
+  .nav-toggle { display: block; }
+
+  .nav-menu,
+  .nav-actions {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .nav.open .nav-menu,
+  .nav.open .nav-actions { display: flex; }
+
+  .dropdown { position: static; margin-top: 8px; box-shadow: none; }
+  .nav-item:hover > .dropdown { display: none; }
+  .nav-item.open > .dropdown { display: block; }
+}

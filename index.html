@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConectaSocial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="chip-row" id="hero-chips"></div>
+        <h1>Conecta con quienes <span class="accent">comparten tus valores</span></h1>
+        <p class="hero-lead">Encuentra negocios, organizaciones y comunidades comprometidas con los mismos movimientos que tú. Juntas construimos un mundo más justo.</p>
+        <!-- La búsqueda funcional llega en un sprint posterior -->
+        <form class="search-form" id="search-form">
+          <input type="search" placeholder="Busca negocios, eventos, organizaciones..." aria-label="Buscar">
+          <button class="btn" type="submit">Buscar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="container chip-row" id="strip-chips"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/navbar.js"></script>
+  <script>
+    const chipHtml = (c, extra) =>
+      `<a class="chip chip-${c.id} ${extra}" href="category.html?cat=${c.id}">${c.icono} ${c.nombre}</a>`;
+
+    document.getElementById("hero-chips").innerHTML = CATEGORIAS.map((c) => chipHtml(c, "chip-sm chip-on-dark")).join("");
+    document.getElementById("strip-chips").innerHTML = CATEGORIAS.map((c) => chipHtml(c, "")).join("");
+    document.getElementById("search-form").addEventListener("submit", (e) => e.preventDefault());
+  </script>
+</body>
+</html>
